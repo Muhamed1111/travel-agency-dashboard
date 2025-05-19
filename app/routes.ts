@@ -5,6 +5,6 @@ export default [
         [
             route('dashboard', 'routes/admin/dashboard.tsx'),
             route('all-users', 'routes/admin/all-users.tsx'),
-
+            
         ])
         ] satisfies RouteConfig;
