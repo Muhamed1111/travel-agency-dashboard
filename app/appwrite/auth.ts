@@ -7,7 +7,7 @@ export const getExistingUser = async (id: string) => {
         const { documents, total } = await database.listDocuments(
             appwriteConfig.databaseId,
             appwriteConfig.userCollectionId,
-            [Query.equal("accountId", id)]
+            [Query.equal("accountid", id)]
         );
         return total > 0 ? documents[0] : null;
     } catch (error) {
@@ -31,7 +31,7 @@ export const storeUserData = async () => {
             appwriteConfig.userCollectionId,
             ID.unique(),
             {
-                accountId: user.$id,
+                accountid: user.$id,
                 email: user.email,
                 name: user.name,
                 imageUrl: profilePicture,
@@ -90,8 +90,8 @@ export const getUser = async () => {
             appwriteConfig.databaseId,
             appwriteConfig.userCollectionId,
             [
-                Query.equal("accountId", user.$id),
-                Query.select(["name", "email", "imageUrl", "joinedAt", "accountId"]),
+                Query.equal("accountid", user.$id),
+                Query.select(["name", "email", "imageUrl", "joinedAt", "accountid"]),
             ]
         );
 

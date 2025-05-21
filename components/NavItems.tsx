@@ -1,19 +1,22 @@
-import {Link} from "react-router-dom";
+import {Link,useLoaderData,useNavigate} from "react-router";
 import {sidebarItems} from "../app/constants";
 import {NavLink} from "react-router";
 import {type ClassValue, clsx} from "clsx";
 import {twMerge} from "tailwind-merge";
+import {logoutUser} from "../app/appwrite/auth";
+
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 const NavItems=({handleClick}:{handleClick?:()=>void})=>{
 
-const user ={
-    name:'Adrian',
-    email:'contact@jsmastery.pro',
-    image:'/images/david.webp',
-}
+const user = useLoaderData();
+const navigate = useNavigate();
+const  handleLogout = async ()=>{
+    await logoutUser();
+    navigate('/sign-in');
+    }
     return (
         <section className="nav-items">
             <Link to="/" className="link-logo" >
@@ -40,14 +43,12 @@ const user ={
                     ))}
                 </nav>
                 <footer className="nav-footer">
-                    <img src={user?.image || '/images/david.png'} alt={user?.name || 'David'}/>
+                    <img src={user?.image || '/images/david.png'} alt={user?.name || 'David'} referrerPolicy="no-referrer"/>
                     <article>
                         <h2>{user?.name}</h2>
                         <p>{user?.email}</p>
                     </article>
-                    <button onClick={()=>{
-                        console.log('logout')
-                    }}
+                    <button onClick={()=>handleLogout()}
                     className="cursor-pointer"
                     >
                         <img src="/icons/logout.svg" alt="logout"
