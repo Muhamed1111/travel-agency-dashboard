@@ -43,7 +43,7 @@ const  handleLogout = async ()=>{
                     ))}
                 </nav>
                 <footer className="nav-footer">
-                    <img src={user?.image || '/images/david.png'} alt={user?.name || 'David'} referrerPolicy="no-referrer"/>
+                    <img src={user?.image || '/images/david.webp'} alt={user?.name || 'David'} referrerPolicy="no-referrer"/>
                     <article>
                         <h2>{user?.name}</h2>
                         <p>{user?.email}</p>

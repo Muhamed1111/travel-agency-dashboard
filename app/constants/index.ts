@@ -1,5 +1,5 @@
 import type { AxisModel } from "@syncfusion/ej2-react-charts";
-
+import dayjs from "dayjs";
 export const sidebarItems = [
   {
     id: 1,
@@ -19,6 +19,7 @@ export const sidebarItems = [
     label: "AI Trips",
     href: "/trips",
   },
+
 ];
 
 export const chartOneData: object[] = [
@@ -86,6 +87,7 @@ export const budgetOptions = ["Budget", "Mid-range", "Luxury", "Premium"];
 export const groupTypes = ["Solo", "Couple", "Family", "Friends", "Business"];
 
 export const footers = ["Terms & Condition", "Privacy Policy"];
+
 
 export const selectItems = [
   "groupType",
@@ -185,3 +187,37 @@ export const allTrips = [{
     estimatedPrice: "$4,000",
   },
 ];
+
+ export const formatDate = (dateString: string): string => {
+   return dayjs(dateString).format("YYYY-MM-DD");
+ };
+
+export const users = [
+  {
+    id: 1,
+    name: "John Doe",
+    email: "john.doe@example.com",
+    imageUrl: "/images/david.webp",
+    dateJoined: formatDate(new Date("2025-01-01").toISOString()),
+    itineraryCreated: 10,
+    status: "user",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    email: "jane.smith@example.com",
+    imageUrl: "/images/james.webp",
+    dateJoined: formatDate(new Date("2025-01-02").toISOString()),
+    itineraryCreated: 4,
+    status: "user",
+  },
+  {
+    id: 3,
+    name: "Muhamed Mujic",
+    email: "muhamedmujic173@gmail.com",
+    imageUrl: "/images/michael.webp",
+    dateJoined: formatDate(new Date("2025-01-03").toISOString()),
+    itineraryCreated: 8,
+    status: "admin",
+  },
+]
